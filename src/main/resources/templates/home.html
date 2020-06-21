@@ -5,7 +5,14 @@
 <title>pagina principapl</title>
 </head>
 <body>
-	<h1 th:text="${mensaje}">prueba de h1</h1>
-	<h2>Hoy es [[ ${fecha} ]]</h2>
+ <!--	<h1 th:text="${mensaje}">prueba de h1</h1>
+	<h2>Hoy es [[ ${fecha} ]]</h2>-->
+
+	<h1>Bienvenido</h1>
+	<h2>Oferta de trabajo</h2>
+	<h3 th:text="'Titulo: ' +  ${nombre}"></h3>
+	<h3 th:text="'Fecha pub: ' +  ${ fechaPublic}"></h3>
+	<h3 th:text="'Salario: ' +  ${salario}"></h3>
+	<h3 th:text="'Vigente: ' +  ${vigente}"></h3>
 <body>
 </html>
