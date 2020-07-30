@@ -28,6 +28,8 @@
           <th>Descripcion</th>
 
           <th>Destacada</th>
+
+          <th>Detalle</th>
       
         </tr>
       
@@ -51,6 +53,11 @@
 
             <span th:if="${vacante.destacado == 1}" class="badge badge-success">Si</span>
             <span th:unless="${vacante.destacado == 1}" class="badge badge-danger">No</span>
+          </td>
+
+          <td> <a href="#" class="btn btn-success">Ver detalle</a>
+
+
           </td>
       
         </tr>
