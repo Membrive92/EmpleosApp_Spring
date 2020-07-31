@@ -9,12 +9,14 @@
 
     </head>
     <body>
-
+      <img th:src="@{/img/jobs.png}" width="137" height="136" >
     <h1 class="">Detalle de las Vacantes de trabajo</h1>
     <table  class="table table-striped table-dark table-bordered table-hover">
 
         <tr>
       
+          <th>Logo</th>
+
           <th>ID</th>
       
           <th>Nombre</th>
@@ -24,11 +26,17 @@
           <th>Salario</th>
 
           <th>Descripcion</th>
+
+          <th>Destacada</th>
+
+          <th>Detalle</th>
       
         </tr>
       
         <tr th:each="vacante : ${vacantes}">
-      
+            <!-- nombre de variable temporal (img)   por cada iteracion img va a ser el contenido de vacante.imagen -->
+          <td><img th:src="@{/img/{img} ( img =${vacante.imagen} )}" width="137" height="136" ></td>
+
           <td th:text="${vacante.id}"></td>
       
           <td th:text="${vacante.nombre}"></td>
@@ -38,6 +46,19 @@
           <td th:text="${vacante.salario}"></td>
 
           <td th:text="${vacante.descripcion}"></td>
+
+        <!-- <td th:text="${vacante.destacado == 1 ? 'Si' : 'No'}"></td>--> 
+
+          <td>
+
+            <span th:if="${vacante.destacado == 1}" class="badge badge-success">Si</span>
+            <span th:unless="${vacante.destacado == 1}" class="badge badge-danger">No</span>
+          </td>
+
+          <td> <a href="#" class="btn btn-success">Ver detalle</a>
+
+
+          </td>
       
         </tr>
       
