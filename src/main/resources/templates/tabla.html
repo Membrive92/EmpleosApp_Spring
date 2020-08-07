@@ -30,6 +30,8 @@
           <th>Destacada</th>
 
           <th>Detalle</th>
+
+          <th>Borrar</th>
       
         </tr>
       
@@ -55,7 +57,12 @@
             <span th:unless="${vacante.destacado == 1}" class="badge badge-danger">No</span>
           </td>
 
-          <td> <a href="#" class="btn btn-success">Ver detalle</a>
+          <td> <a th:href="@{/vacantes/view/{id} (id=${vacante.id})   }" class="btn btn-success">detalle</a>
+
+
+          </td>
+          <!-- se modifica la url debido a que es un Request Param, de este forma se renderiza la url -->
+          <td> <a th:href="@{/vacantes/delete(id=${vacante.id})   }" class="btn btn-danger">Borrar</a>
 
 
           </td>
