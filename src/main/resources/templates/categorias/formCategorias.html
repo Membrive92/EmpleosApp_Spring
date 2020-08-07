@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Listado de Vacantes</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
 
-    </head>
+  <title>EmpleosApp | Creación de Categorías</title>
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+  <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+</head>
+
 <body>
 
-<h1>Creacion de Categorias</h1>
+  <header th:insert="fragmentos/header :: menu-principal"> </header>
 
-<form th:action="@{/categorias/save}" method="post" class="pl-2">
-  Nombre:<br>
-  <input type="text"  name="nombre" value="">
-  <br>
-  Descripcion<br>
-  <input type="text"  name="descripcion" value="">
-  <br><br>
-  <input type="submit" value="Guardar">
-</form> 
+  <main role="main">     
+    <hr>
+    <div class="container"> 
 
+      <div class="card">
+        <h4 class="card-header"><strong>Datos de la categoría</strong></h4>              
+        <div class="card-body">
+          <form th:action="@{/categorias/save}" method="post">              
+            <div class="row">
+              <div class="col-md-6"> 
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
+                </div>
+              </div>                
+            </div> 
+            <div class="row">
+              <div class="col-md-6"> 
+                <div class="form-group">
+                  <label for="descripcion">Descripción</label>
+                  <textarea class="form-control" name="descripcion" id="descripcion" rows="2"></textarea>
+                </div> 
+              </div>                
+            </div> 
+            <hr>
+            <button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>  
+          </form>
+        </div>
+      </div>
+    </div> <!-- /container -->
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </main>
+
+  <footer th:insert="fragmentos/footer :: pie-pagina" class="footer"></footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
 </body>
 </html>
