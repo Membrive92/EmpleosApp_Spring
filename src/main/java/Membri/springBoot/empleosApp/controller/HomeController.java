@@ -62,23 +62,13 @@ public class HomeController {
 	@GetMapping("/")
 	//Con Model podemos agregar cualquier tipo de  dato al modelo
 	public String mostrarHome(Model model) {
-		//añadimos a la variable "mensaje" la cadena "Empleos App"
-	/*	model.addAttribute("mensaje", "Empleos App");
-		model.addAttribute("fecha", new Date()); */
-		String nombre = "Auxiliar de Contabilidad";
-		Date fechaPublic = new Date();
-		double salario = 9000.0;
-		boolean vigente = true;
-		
-		model.addAttribute("nombre", nombre);
-		model.addAttribute("fechaPublic", fechaPublic);
-		model.addAttribute("salario", salario);
-		model.addAttribute("vigente", vigente);
+		List<Vacante> lista = serviceVacantes.buscarTodas();
+		model.addAttribute("vacantes", lista);
 		
 		return "home";
 	}
 	
-	
+
 		
 	}
 
