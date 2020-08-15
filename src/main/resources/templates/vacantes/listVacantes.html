@@ -17,30 +17,9 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">EmpleosApp</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu 1</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu 2</a>
-            </li>          
-          </ul>  
-          <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
-          <a class="btn btn-primary" href="#">Registrarse</a>
-        </div>
-      </nav>
-    </header>  
+    
+      <header th:insert="fragmentos/header :: menu-principal"> </header>
+    
 
     <main role="main">     
       <hr>
@@ -53,7 +32,8 @@
             <hr>
             <table class="table table-hover">
               <thead class="thead-light">
-                <tr>
+                <tr >
+                  <th scope="col">Imagen</th>
                   <th scope="col">Categoría</th>
                   <th scope="col">Nombre</th>                  
                   <th scope="col">Fecha Pub.</th>
@@ -63,39 +43,20 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Ventas</td>
-                  <td>Supervisor de Ventas</td>                  
-                  <td>11-01-2019</td>
-                  <td>Creada</td>
-                  <td>SI</td>
+                <tr th:each = "vacante : ${vacantes}">
+                  <td><img class="rounded mx-auto d-block" th:src="@{/img/{img} (img=${vacante.imagen})}" alt="Generic placeholder image" width="40" height="40">   </td>
+                  <td th:text ="${vacante.categoria}"></td>
+                  <td th:text ="${vacante.nombre}"></td>                  
+                  <td th:text ="${vacante.fecha}"></td>
+                  <td th:text ="${vacante.estado}"></td>
+                  <td th:text ="${vacante.destacado}"></td>
                   <td>
-                    <a href="#" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a href="#" class="btn btn-primary btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-primary btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>
-                <tr>
-                  <td>Finanzas</td>
-                  <td>Contador Público</td>                  
-                  <td>15-01-2019</td>
-                  <td>Aprobada</td>
-                  <td>SI</td>
-                  <td>
-                    <a href="#" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Desarrollo de Software</td>
-                  <td>Programador web Laravel, MySQL y Javascript</td>                  
-                  <td>11-05-2019</td>
-                  <td>Eliminada</td>
-                  <td>SI</td>
-                  <td>
-                    <a href="#" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-                  </td>
-                </tr>
+               
+                 
                                
               </tbody>
             </table>
@@ -106,14 +67,7 @@
 
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>
-          &copy; 2019 EmpleosApp, Inc. | WebApp Desarrollada con Spring Boot 2.1.2 | Autor: Iv&aacute;n E. Tinajero D&iacute;az | &middot; <a href="#">Privacy</a>
-          &middot; <a href="#">Terms</a>
-        </p>
-      </div>
-    </footer>
+    <footer th:insert="fragmentos/footer :: pie-pagina" class="footer"></footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -91,4 +91,11 @@ public class VacanteServiceImpl implements IVacanteService {
 		return null;
 	}
 
+
+	
+	public void guardar(Vacante vacante) {
+		lista.add(vacante);
+		
+	}
+
 }
