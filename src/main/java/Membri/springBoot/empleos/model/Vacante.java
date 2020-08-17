@@ -14,7 +14,7 @@ public class Vacante {
 	private String imagen="sin_imagen.png";
 	private String estado;
 	private String detalles;
-	private String categoria;
+	
 	
 	
 	public Integer getId() {
@@ -72,13 +72,7 @@ public class Vacante {
 	public void setDetalles(String detalles) {
 		this.detalles = detalles;
 	}
-	public String getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-	
+
 	
 	@Override
 	public String toString() {
