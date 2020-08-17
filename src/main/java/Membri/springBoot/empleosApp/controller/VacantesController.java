@@ -44,6 +44,7 @@ public class VacantesController {
 	}
 
 	@PostMapping("/save")
+	//RedirectAttributes es el mensaje flash cuando existe una redirrecion
 	public String guardar(Vacante vacante, BindingResult result, RedirectAttributes msgGuardado) {
 		if(result.hasErrors()) {
 			for(ObjectError error: result.getAllErrors()) {
