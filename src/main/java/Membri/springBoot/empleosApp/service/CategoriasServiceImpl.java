@@ -18,17 +18,17 @@ public class CategoriasServiceImpl implements ICategoriasService {
 		lista = new LinkedList<Categoria>();
 		
 		Categoria categoria1 = new Categoria();
-		categoria1.setNombre("Recursos Humanos");
+		categoria1.setNombre("Testing");
 		categoria1.setDescripcion("Trabajos relacionados con el area de RRHH");
 
 		
 		Categoria categoria2 = new Categoria();
-		categoria2.setNombre("Arquitectura");
+		categoria2.setNombre("Desarrollo web");
 		categoria2.setDescripcion("Diseño de planos en general y trabajos relacionados.");
 
 		
 		Categoria categoria3 = new Categoria();
-		categoria3.setNombre("Ventas");
+		categoria3.setNombre("Desarrollo movil");
 		categoria3.setDescripcion("Ofertas de trabajo relacionado con ventas.");
 		
 		lista.add(categoria1);

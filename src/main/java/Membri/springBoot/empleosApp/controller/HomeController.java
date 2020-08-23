@@ -36,7 +36,7 @@ public class HomeController {
 		vacante.setNombre("Pintor");
 		vacante.setDescripcion("Se solicita un pintor para restaurar una fachada");
 		vacante.setFecha(new Date());
-		vacante.setSalario(2500.0);
+		vacante.setSueldo(2500.0);
 		model.addAttribute("vacante", vacante);
 		
 		return "detalle";

@@ -38,7 +38,7 @@ public class CategoriasController {
 			for(ObjectError error: result.getAllErrors()) {
 				System.out.println("Ocurrio un error : " + error.getDefaultMessage());
 			}
-			return "categorias/formVacante";
+			return "categorias/listCategorias";
 		}
 		serviceCategoria.guardar(categoria);
         msgGuardado.addFlashAttribute("msg", "Registro guardado con éxito");
