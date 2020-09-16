@@ -35,6 +35,9 @@ public class Utiles {
 	public static String caracteresAleatorios(int count) {
 		String caracteres = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";
 		StringBuilder builder = new StringBuilder();
+		
+		//mientras que el while funcione, vamos a generar caracteres aleatorios y los vamos añadiendo al StringBuilder
+		// uso Stringbuilder por un tema de eficiencia en lugar de usar la concatenacion de String
 		while(count-- !=0) {
 			int caracterAleatorio = (int) (Math.random() * caracteres.length());
 			builder.append(caracteres.charAt(caracterAleatorio));

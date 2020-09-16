@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
-import Membri.springBoot.empleos.model.Vacante;
+import Membri.springBoot.empleosApp.model.Vacante;
 import Membri.springBoot.empleosApp.service.IVacanteService;
 
 @Controller

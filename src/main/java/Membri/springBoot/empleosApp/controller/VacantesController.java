@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import Membri.springBoot.empleos.Util.Utiles;
-import Membri.springBoot.empleos.model.Vacante;
+import Membri.springBoot.empleosApp.model.Vacante;
 import Membri.springBoot.empleosApp.service.ICategoriasService;
 import Membri.springBoot.empleosApp.service.IVacanteService;
 

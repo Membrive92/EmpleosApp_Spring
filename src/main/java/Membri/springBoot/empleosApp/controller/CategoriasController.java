@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import Membri.springBoot.empleos.model.Categoria;
+import Membri.springBoot.empleosApp.model.*;
 import Membri.springBoot.empleosApp.service.ICategoriasService;
 
 @Controller

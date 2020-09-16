@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import Membri.springBoot.empleos.model.Vacante;
+import Membri.springBoot.empleosApp.model.Vacante;
 
 @Service
 public class VacanteServiceImpl implements IVacanteService {

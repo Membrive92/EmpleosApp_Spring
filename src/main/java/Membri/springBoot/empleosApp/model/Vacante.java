@@ -1,9 +1,21 @@
-package Membri.springBoot.empleos.model;
+package Membri.springBoot.empleosApp.model;
 
 import java.util.Date;
 
-public class Vacante {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name="Vacantes")
+public class Vacante {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
 	private String descripcion;
@@ -13,6 +25,9 @@ public class Vacante {
 	private String imagen = "sin_imagen.png";
 	private String estado;
 	private String detalles;
+	//relacion y el nombre de la llave
+	@OneToOne
+	@JoinColumn(name="idCategoria")
 	private Categoria categoria;
 
 	public Integer getId() {

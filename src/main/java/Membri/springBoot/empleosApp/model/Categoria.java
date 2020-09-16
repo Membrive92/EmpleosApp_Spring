@@ -1,6 +1,19 @@
-package Membri.springBoot.empleos.model;
+package Membri.springBoot.empleosApp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Categorias")
 public class Categoria {
+	
+	
+	//ID autoincrementable en mysql
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
 	private String descripcion;
