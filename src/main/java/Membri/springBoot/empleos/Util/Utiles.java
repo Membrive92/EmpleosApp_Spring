@@ -9,11 +9,11 @@ public class Utiles {
 	public static String guardarArchivo(MultipartFile multiPart, String ruta) {
 		String nombreOriginal = multiPart.getOriginalFilename();
 		nombreOriginal.replace(" ", "_");
-		String nombreFinal = caracteresAleatorios(8) + nombreOriginal;
+		String nombreFinal = caracteresAleatorios(8)  +  nombreOriginal;
 		try {
 
 			// formamos el nombre del archivo para guardarlo en el disco duro
-			File archivoImagen = new File(ruta + nombreFinal);
+			File archivoImagen = new File(nombreFinal);
 			System.out.println("Archivo " + archivoImagen.getAbsolutePath());
 
 			// Guardamos fisicamente el archivo
