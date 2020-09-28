@@ -98,11 +98,12 @@ public class VacantesController {
 	 */
 
 	// Request Param se utiliza para valores estaticos
-	@GetMapping("/delete")
-	public String eliminar(@RequestParam("id") int idVacante, Model model) {
-		System.out.println("Borrando vacante con id: " + idVacante);
-		model.addAttribute("id", idVacante);
-		return "mensaje";
+	@GetMapping("/delete/{id}")
+	public String eliminar(@PathVariable("id") int idVacante,RedirectAttributes msgGuardado) {
+		System.out.println("Borrando vacante con id: " + idVacante);	
+		serviceVacantes.eliminar(idVacante);
+		msgGuardado.addFlashAttribute("msg","La vacante fue eliminada");
+		return "redirect:/vacantes/index" ;
 	}
 
 	// Path variable Param se utiliza para valores dinamicos

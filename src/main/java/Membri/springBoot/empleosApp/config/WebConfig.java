@@ -14,6 +14,6 @@ public class WebConfig implements WebMvcConfigurer {
 @Override	
 public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	//configura la ruta visibler donde se almacenan las imagenes
-	registry.addResourceHandler("/logos/**").addResourceLocations("file"+rutaImagenes);
+	registry.addResourceHandler("/logos/**").addResourceLocations("file:"+rutaImagenes);
 }
 }
