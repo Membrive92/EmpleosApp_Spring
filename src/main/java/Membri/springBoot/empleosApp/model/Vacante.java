@@ -22,7 +22,7 @@ public class Vacante {
 	private Date fecha;
 	private Double sueldo;
 	private Integer destacado;
-	private String imagen = "sin_imagen.png";
+	private String imagen;
 	private String estado;
 	private String detalles;
 	//relacion y el nombre de la llave

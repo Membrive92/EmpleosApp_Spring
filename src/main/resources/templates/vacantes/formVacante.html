@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+ 
 
     <title>EmpleosApp | Creación de Ofertas de Trabajo</title>
     <!-- Bootstrap core CSS -->
@@ -40,6 +40,9 @@
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <!--  *{} sintaxis para que se guarden los datos enviados al formulario cuando falla el envio-->
+                    <!--Almacenamos en los hidden elementos que queramos guardar su estado-->
+                    <input type="hidden" th:field="*{id}">
+                    <input type="hidden" th:field="*{imagen}">
                     <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Titulo de la oferta de trabajo" required="required">
                   </div>
                 </div>
@@ -116,8 +119,8 @@
                   </div> 
                 </div> 
                 <div class="col-md-3">
-                  <label for="imagen">Imagen/Logo</label>
-                  <img class="rounded mx-auto d-block" src="images/construccion-logo.png" alt="Generic placeholder image" width="200" height="200">            
+                  <label for="imagen"></label>
+                  <img class="rounded mx-auto d-block" th:src="@{/logos/{img}  (img= ${vacante.imagen})}" alt="Generic placeholder image" width="200" height="200">            
                 </div>
               </div> 
               <button type="submit" class="btn btn-primary">Guardar</button>  

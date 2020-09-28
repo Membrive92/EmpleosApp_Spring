@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    
 
     <title>EmpleosApp | Listado de Ofertas de Trabajo</title>
     <!-- Bootstrap core CSS -->
@@ -53,7 +53,7 @@
                   <td th:text ="${vacante.estado}"></td>
                   <td th:text ="${vacante.destacado ==1 ? 'SI' : 'NO'} "></td>
                   <td>
-                    <a href="#" class="btn btn-primary btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a th:href="@{/vacantes/edit/{id}  (id = ${vacante.id}) }" class="btn btn-primary btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                     <a th:href="@{/vacantes/delete/{id}  (id = ${vacante.id}) }" onclick="return confirm('¿Estas seguro?')" class="btn btn-primary btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>
