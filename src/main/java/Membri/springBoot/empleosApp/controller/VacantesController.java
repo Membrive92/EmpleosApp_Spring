@@ -31,6 +31,7 @@ import Membri.springBoot.empleosApp.service.IVacanteService;
 @RequestMapping("/vacantes")
 public class VacantesController {
 
+
 	
 	//ruta declarada en el properties de Spring
 	@Value("$empleosApp.ruta.imagenes")

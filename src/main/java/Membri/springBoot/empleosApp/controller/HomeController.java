@@ -1,7 +1,6 @@
 package Membri.springBoot.empleosApp.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,8 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import Membri.springBoot.empleosApp.model.Perfil;
+import Membri.springBoot.empleosApp.model.Usuario;
 import Membri.springBoot.empleosApp.model.Vacante;
+import Membri.springBoot.empleosApp.service.IUsuariosService;
 import Membri.springBoot.empleosApp.service.IVacanteService;
 
 @Controller
@@ -20,6 +24,9 @@ public class HomeController {
 
 	@Autowired
 	private IVacanteService serviceVacantes;
+	
+	@Autowired
+	private IUsuariosService serviceUsuarios;
 
 	@GetMapping("/tabla")
 	public String mostrarTabla(Model model) {
@@ -62,6 +69,29 @@ public class HomeController {
 	// Con Model podemos agregar cualquier tipo de dato al modelo
 	public String mostrarHome(Model model) {
 		return "home";
+	}
+	@GetMapping("/signup")
+	public String registrarse(Usuario usuario) {
+		return "formRegistro";
+	}
+	
+	@PostMapping("/signup")
+	public String guardarRegistro(Usuario usuario, RedirectAttributes attributes) {
+		usuario.setEstado(1); //Activado por defecto
+		usuario.setFechaRegistro(new Date()); //Fecha de Registro, la fecha actual del servidor
+		
+		Perfil perfil = new Perfil();
+		perfil.setId(3); //Perfil usuario
+		usuario.agregar(perfil);
+		
+		//Guardamos el usuarion en base de datos
+		serviceUsuarios.guardar(usuario);
+		
+		attributes.addFlashAttribute("msg", "Registro guardado con éxito");
+		
+
+		
+		return "redirect:/usuarios/index";
 	}
 
 	//Agregar al modelo todos los atributos que queramos, disponibles para todos los metodos de este controlador
