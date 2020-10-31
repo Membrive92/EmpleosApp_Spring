@@ -22,7 +22,7 @@ public class Vacante {
 	private Date fecha;
 	private Double sueldo;
 	private Integer destacado;
-	private String imagen;
+	private String imagen = "sin_imagen.png";
 	private String estado;
 	private String detalles;
 	//relacion y el nombre de la llave
@@ -108,6 +108,11 @@ public class Vacante {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+	
+	//Resetear la
+	public void reset() {
+		this.imagen = null;
 	}
 
 	@Override
