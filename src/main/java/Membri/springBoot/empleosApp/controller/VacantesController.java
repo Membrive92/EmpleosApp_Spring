@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -48,6 +50,14 @@ public class VacantesController {
 		List<Vacante> vacantes = serviceVacantes.buscarTodas();
 		model.addAttribute("vacantes", vacantes );
 		
+		return "vacantes/listVacantes";
+	}
+	
+	//mismo metodo que el index pero le pasamos la interfaz "Pageable"
+	@GetMapping("/indexPaginate")
+	public String mostrarIndexPaginado(Model model, Pageable page) {
+		Page<Vacante> lista = serviceVacantes.buscarTodas(page);
+		model.addAttribute("vacantes", lista);
 		return "vacantes/listVacantes";
 	}
 
