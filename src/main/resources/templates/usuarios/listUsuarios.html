@@ -54,10 +54,18 @@
                                
               </tbody>
             </table>
-            <nav th:if="${usuarios.totalPages > 0}" aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item"><a th:href="@{/usuarios/indexPaginate(page=${usuarios.number -1})}" class="page-link">Anterior</a></li>
-                <li class="page-item"><a th:href="@{/usuarios/indexPaginate(page=${usuarios.number +1})}" class="page-link">Siguiente</a></li>
+            <nav th:if="${usuarios.totalPages > 0}" aria-label="Page navigation example" >
+              <ul class="pagination justify-content-center">
+                <li class="page-item" th:classappend="${usuarios.number == 0 ? 'disabled' : ''}">
+                  <a th:href="@{/categorias/indexPaginate(page=${usuarios.number - 1})}" class="page-link">Anterior</a>
+                </li>
+                      
+                <li class="page-item" th:classappend="${i eq usuarios.number + 1} ? 'active'" th:each="i : ${#numbers.sequence( 1, usuarios.totalPages, 1)}">
+                  <a class="page-link" th:href="@{/usuarios/indexPaginate?page={tmpPag} (tmpPag=${i-1}) }" th:text="${i}" th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+                </li>
+                <li class="page-item" th:classappend="${usuarios.number == (usuarios.totalPages - 1) ? 'disabled' : ''}">
+                  <a th:href="@{/usuarios/indexPaginate(page=${usuarios.number + 1})}" class="page-link">Siguiente</a>
+                </li>
               </ul>
             </nav>
           </div>
