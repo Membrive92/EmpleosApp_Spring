@@ -2,7 +2,11 @@ package Membri.springBoot.empleosApp.service.database;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import Membri.springBoot.empleosApp.model.Categoria;
 import Membri.springBoot.empleosApp.model.Usuario;
 import Membri.springBoot.empleosApp.repository.UsuariosRepository;
 import Membri.springBoot.empleosApp.service.IUsuariosService;
@@ -11,18 +15,23 @@ import Membri.springBoot.empleosApp.service.IUsuariosService;
 public class UsuariosServiceJpa implements IUsuariosService {
 
 	@Autowired
-	private UsuariosRepository usuariosRepo;
+	private UsuariosRepository usuariosRepositorio;
 
 	public void guardar(Usuario usuario) {
-		usuariosRepo.save(usuario);
+		usuariosRepositorio.save(usuario);
 	}
 
 	public void eliminar(Integer idUsuario) {
-		usuariosRepo.deleteById(idUsuario);
+		usuariosRepositorio.deleteById(idUsuario);
 	}
 
 	public List<Usuario> buscarTodos() {
-		return usuariosRepo.findAll();
+		return usuariosRepositorio.findAll();
+	}
+
+	@Override
+	public Page<Usuario> buscarTodas(Pageable page) {
+		return usuariosRepositorio.findAll(page);
 	}
 
 }
