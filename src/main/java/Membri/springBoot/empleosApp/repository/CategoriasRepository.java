@@ -1,0 +1,13 @@
+package Membri.springBoot.empleosApp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import Membri.springBoot.empleosApp.model.Categoria;
+
+
+
+//Interfaz con los metodos Crud implementados
+//public interface CategoriasRepository extends CrudRepository<Categoria, Integer> {
+public interface CategoriasRepository extends JpaRepository<Categoria, Integer> {
+
+}

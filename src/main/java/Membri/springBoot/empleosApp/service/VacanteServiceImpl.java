@@ -5,9 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import Membri.springBoot.empleos.model.Vacante;
+import Membri.springBoot.empleosApp.model.Vacante;
 
 @Service
 public class VacanteServiceImpl implements IVacanteService {
@@ -27,7 +30,7 @@ public class VacanteServiceImpl implements IVacanteService {
 				vacante1.setNombre("Desarrollador Web");
 				vacante1.setDescripcion("Solicitamos desarrollador web para proyecto Spring");
 				vacante1.setFecha(sdf.parse("08-02-2019"));
-				vacante1.setSalario(12.500);
+				vacante1.setSueldo(12.500);
 				vacante1.setDestacado(1);
 				vacante1.setImagen("desarrollo.png");
 				
@@ -38,7 +41,7 @@ public class VacanteServiceImpl implements IVacanteService {
 				vacante2.setNombre("Dev Ops");
 				vacante2.setDescripcion("Solicitamos un dev Ops para proyectos");
 				vacante2.setFecha(sdf.parse("08-12-2016"));
-				vacante2.setSalario(15.500);
+				vacante2.setSueldo(15.500);
 				vacante2.setDestacado(0);
 				
 				
@@ -48,7 +51,7 @@ public class VacanteServiceImpl implements IVacanteService {
 				vacante3.setNombre("Testing");
 				vacante3.setDescripcion("Solicitamos un QA para proyectos");
 				vacante3.setFecha(sdf.parse("08-12-2014"));
-				vacante3.setSalario(17.500);
+				vacante3.setSueldo(17.500);
 				vacante3.setDestacado(1);
 				vacante3.setImagen("testing.png");
 				
@@ -58,7 +61,7 @@ public class VacanteServiceImpl implements IVacanteService {
 				vacante4.setNombre("Experto en Angular");
 				vacante4.setDescripcion("Solicitamos una persona con experiencia en Angular 9");
 				vacante4.setFecha(sdf.parse("08-12-2018"));
-				vacante4.setSalario(17.500);
+				vacante4.setSueldo(17.500);
 				vacante4.setDestacado(0);
 				
 				lista.add(vacante1);
@@ -88,6 +91,41 @@ public class VacanteServiceImpl implements IVacanteService {
 			}
 			
 		}
+		return null;
+	}
+
+
+	
+	public void guardar(Vacante vacante) {
+		lista.add(vacante);
+		
+	}
+
+
+	@Override
+	public List<Vacante> buscarDestacadas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void eliminar(Integer idVacante) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<Vacante> buscarByExample(Example<Vacante> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Page<Vacante> buscarTodas(Pageable page) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
