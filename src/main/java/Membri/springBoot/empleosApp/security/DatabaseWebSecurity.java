@@ -1,4 +1,4 @@
-package Membri.springBoot.empleos.security;
+package Membri.springBoot.empleosApp.security;
 
 import javax.sql.DataSource;
 
@@ -15,7 +15,11 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	private DataSource dataSource;
 
 	@Override
-	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource);
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.jdbcAuthentication().dataSource(dataSource)
+				.usersByUsernameQuery("select username, password, estado from Usuarios where username=?")
+				.authoritiesByUsernameQuery("select u.username, p.perfil from UsuarioPerfil up "
+						+ "inner join Usuarios u on u.id = up.idUsuario "
+						+ "inner join Perfiles p on p.id = up.idPerfil " + " where u.username = ?");
 	}
 }
